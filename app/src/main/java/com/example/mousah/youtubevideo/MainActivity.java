@@ -34,7 +34,11 @@ public class MainActivity extends YouTubeBaseActivity implements YouTubePlayer.O
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
 
         if (!wasRestored) {
-            youTubePlayer.loadVideo(Config.YOUTUBE_VIDEO_CODE);
+            // loadVideo() will auto play video
+            // Use cueVideo() method, if you don't want to play it automatically
+            youTubePlayer.cueVideo(Config.YOUTUBE_VIDEO_CODE);
+            // Hiding player controls
+//            player.setPlayerStyle(YouTubePlayer.PlayerStyle.CHROMELESS);
         }
 
     }
